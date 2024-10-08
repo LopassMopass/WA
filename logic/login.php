@@ -21,7 +21,7 @@ verifyUser($_POST["email"], $_POST["password"]);
 function verifyUser(string $email, string $password): void
 {
     $connection = DBC::getConnection();
-    $statement = $connection -> prepare("SELECT id, email, password FROM User WHERE email = :email LIMIT 1");
+    $statement = $connection -> prepare("SELECT id, email, password FROM user WHERE email = :email LIMIT 1");
     $statement -> execute([":email" => $email]);
     $result = $statement -> fetch(PDO::FETCH_ASSOC);
     
