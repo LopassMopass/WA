@@ -31,7 +31,7 @@ function insertUser(string $email, string $password): bool
 {
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
     $connection = DBC::getConnection();
-    $statement = $connection -> prepare("INSERT INTO User (email, password) VALUES (:email, :password)");
+    $statement = $connection -> prepare("INSERT INTO user (email, password) VALUES (:email, :password)");
     $statement -> bindParam(":email", $email);
     $statement -> bindParam(":password", $hashedPassword);
     return $statement -> execute();
